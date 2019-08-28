@@ -1,6 +1,0 @@
-framework module GDTMobSDKMM {
-  umbrella header "GDTMobSDKMM-umbrella.h"
-
-  export *
-  module * { export * }
-}
