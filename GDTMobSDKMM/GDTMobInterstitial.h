@@ -18,7 +18,7 @@
 
 /**
  *  广告预加载成功回调
- *  详解:当接收服务器返回的广告数据成功后调用该函数
+ *  详解:当接收服务器返回的广告数据成功且预加载后调用该函数
  */
 - (void)interstitialSuccessToLoadAd:(GDTMobInterstitial *)interstitial;
 
@@ -47,8 +47,7 @@
 - (void)interstitialDidDismissScreen:(GDTMobInterstitial *)interstitial;
 
 /**
- *  应用进入后台时回调
- *  详解: 当点击下载应用时会调用系统程序打开，应用切换到后台
+ *  详解:当点击应用下载或者广告调用系统程序打开时调用
  */
 - (void)interstitialApplicationWillEnterBackground:(GDTMobInterstitial *)interstitial;
 
