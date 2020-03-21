@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'GDTMobSDKMM'
-  s.version          = '1.0.3'
-  s.summary          = 'A short description of GDTMobSDKMM.'
+  s.version          = '1.0.4'
+  s.summary          = 'GDT_iOS_SDK_4.11.5'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
