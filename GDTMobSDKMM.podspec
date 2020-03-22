@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'GDTMobSDKMM'
-  s.version          = '1.0.4'
+  s.version          = '1.0.5'
   s.summary          = 'GDT_iOS_SDK_4.11.5'
 
 # This description is used to generate tags and improve search results.
@@ -30,13 +30,13 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'GDTMobSDKMM/*.H'
-  s.vendored_libraries = 'GDTMobSDKMM/libGDTMobSDK.a'
+  s.source_files = 'GDTMobSDKMM/*.h'
+  s.vendored_libraries = 'GDTMobSDKMM/libGDTMobSDK.a', 'GDTMobSDKMM/libWeChatSDK.a'
   # s.resource_bundles = {
   #   'BUAdSDKMM' => ['BUAdSDKMM/Assets/*.png']
   # }
   s.libraries = "z", "c++", "xml2","resolv",'sqlite3'
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  s.frameworks = 'UIKit', 'CoreMotion', 'AVFoundation','WebKit','SystemConfiguration','AdSupport','CoreLocation','CoreTelephony','StoreKit','CoreServices','CoreMedia','MediaPlayer','Accelerate'
+  s.frameworks = 'UIKit', 'CoreMotion', 'AVFoundation','WebKit','SystemConfiguration','AdSupport','CoreLocation','CoreTelephony','StoreKit','CoreServices','CoreMedia','MediaPlayer','Accelerate','CFNetwork', 'CoreGraphics', 'Security'
   # s.dependency 'AFNetworking', '~> 2.3'
 end
