@@ -8,12 +8,12 @@
 
 Pod::Spec.new do |s|
   s.name             = 'GDTMobSDKMM'
-  s.version          = '1.0.6'
-  s.summary          = 'GDT_iOS_SDK_4.11.5'
+  s.version          = '1.0.7'
+  s.summary          = 'GDT_iOS_SDK_4.11.9'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
+#   * Try to keep it short, snappy and to the point
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 

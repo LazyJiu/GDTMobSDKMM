@@ -64,12 +64,12 @@
 /**
  * 全屏广告页将要关闭
  */
-- (void)nativeExpressAdViewWillDissmissScreen:(GDTNativeExpressAdView *)nativeExpressAdView;
+- (void)nativeExpressAdViewWillDismissScreen:(GDTNativeExpressAdView *)nativeExpressAdView;
 
 /**
  * 全屏广告页将要关闭
  */
-- (void)nativeExpressAdViewDidDissmissScreen:(GDTNativeExpressAdView *)nativeExpressAdView;
+- (void)nativeExpressAdViewDidDismissScreen:(GDTNativeExpressAdView *)nativeExpressAdView;
 
 /**
  * 详解:当点击应用下载或者广告调用系统程序打开时调用
@@ -142,11 +142,19 @@
 
 /**
  *  构造方法
+ *  详解：placementId - 广告位 ID
+ *       adSize - 广告展示的宽高
+ */
+
+- (instancetype)initWithPlacementId:(NSString *)placementId adSize:(CGSize)size;
+
+/**
+ *  构造方法
  *  详解：appId - 媒体 ID
  *       placementId - 广告位 ID
  *       adSize - 广告展示的宽高
  */
-- (instancetype)initWithAppId:(NSString *)appId placementId:(NSString *)placementId adSize:(CGSize)size;
+- (instancetype)initWithAppId:(NSString *)appId placementId:(NSString *)placementId adSize:(CGSize)size GDT_DEPRECATED_MSG_ATTRIBUTE("接口即将废弃，请使用 initWithPlacementId:adSize:");
 
 - (void)loadAd:(NSInteger)count;
 
