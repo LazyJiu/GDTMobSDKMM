@@ -30,8 +30,8 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'GDTMobSDKMM/GDTMobSDKMM/*.h'
-  s.vendored_libraries = 'GDTMobSDKMM/GDTMobSDKMM/libGDTMobSDK.a'
+  s.source_files = 'GDTMobSDKMM/*.h'
+  s.vendored_libraries = 'GDTMobSDKMM/libGDTMobSDK.a'
   # s.resource_bundles = {
   #   'BUAdSDKMM' => ['BUAdSDKMM/Assets/*.png']
   # }
