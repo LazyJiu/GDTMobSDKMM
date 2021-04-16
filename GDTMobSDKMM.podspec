@@ -35,6 +35,7 @@ TODO: Add long description of the pod here.
   # s.resource_bundles = {
   #   'BUAdSDKMM' => ['BUAdSDKMM/Assets/*.png']
   # }
+s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   s.libraries = "z", "c++", "xml2","resolv",'sqlite3'
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit', 'CoreMotion', 'AVFoundation','WebKit','SystemConfiguration','AdSupport','CoreLocation','CoreTelephony','StoreKit','CoreServices','CoreMedia','MediaPlayer','Accelerate','CFNetwork', 'CoreGraphics', 'Security'
