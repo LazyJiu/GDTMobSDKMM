@@ -1,30 +1,28 @@
 //
-//  GDTRewardVideoAd.h
-//  GDTMobSDK
+//  GDTNativeExpressRewardVideoAd.h
+//  GDTMobApp
 //
-//  Created by royqpwang on 2018/9/1.
-//  Copyright © 2018年 Tencent. All rights reserved.
+//  Created by royqpwang on 2020/7/6.
+//  Copyright © 2020 Tencent. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
-#import "GDTSDKDefines.h"
-#import "GDTLoadAdParams.h"
 #import "GDTServerSideVerificationOptions.h"
+#import "GDTSDKDefines.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol GDTNativeExpressRewardedVideoAdDelegate;
 
-@protocol GDTRewardedVideoAdDelegate;
-
-@interface GDTRewardVideoAd : NSObject
+@interface GDTNativeExpressRewardVideoAd : NSObject
 
 @property (nonatomic, getter=isAdValid, readonly) BOOL adValid;
 @property (nonatomic) BOOL videoMuted;
+
 @property (nonatomic, assign, readonly) NSInteger expiredTimestamp;
-@property (nonatomic, weak) id <GDTRewardedVideoAdDelegate> delegate;
+@property (nonatomic, weak) id <GDTNativeExpressRewardedVideoAdDelegate> delegate;
+
 @property (nonatomic, readonly) NSString *placementId;
-@property (nonatomic, strong) GDTLoadAdParams *loadAdParams;
 @property (nonatomic, strong) GDTServerSideVerificationOptions *serverSideVerificationOptions;
 
 /**
@@ -35,18 +33,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (instancetype)initWithPlacementId:(NSString *)placementId;
 
-
 /**
- 构造方法
-
- @param appId - 媒体 ID
- @param placementId - 广告位 ID
- @return GDTRewardVideoAd 实例
- */
-- (instancetype)initWithAppId:(NSString *)appId placementId:(NSString *)placementId GDT_DEPRECATED_MSG_ATTRIBUTE("接口即将废弃，请使用 initWithPlacementId:");
-
-/**
- 加载广告方法 支持 iOS8.1 及以上系统
+ 加载广告方法 支持 iOS9 及以上系统
  */
 - (void)loadAd;
 /**
@@ -81,19 +69,14 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)adNetworkName;
 
 /**
- *  当广告类型为 GDTRewardAdTypeVideo时，返回视频时长，单位 ms，当广告类型为GDTRewardAdTypePage时，返回0
+ * 激励视频广告时长，单位 ms
  */
 - (CGFloat)videoDuration;
-
-/**
- *  激励广告的类型，需在gdt_rewardVideoAdDidLoad回调后调用
- */
-- (GDTRewardAdType)rewardAdType;
 
 @end
 
 
-@protocol GDTRewardedVideoAdDelegate <NSObject>
+@protocol GDTNativeExpressRewardedVideoAdDelegate <NSObject>
 
 @optional
 
@@ -103,42 +86,42 @@ NS_ASSUME_NONNULL_BEGIN
 
  @param rewardedVideoAd GDTRewardVideoAd 实例
  */
-- (void)gdt_rewardVideoAdDidLoad:(GDTRewardVideoAd *)rewardedVideoAd;
+- (void)gdt_nativeExpressRewardVideoAdDidLoad:(GDTNativeExpressRewardVideoAd *)rewardedVideoAd;
 
 /**
  视频数据下载成功回调，已经下载过的视频会直接回调
 
  @param rewardedVideoAd GDTRewardVideoAd 实例
  */
-- (void)gdt_rewardVideoAdVideoDidLoad:(GDTRewardVideoAd *)rewardedVideoAd;
+- (void)gdt_nativeExpressRewardVideoAdVideoDidLoad:(GDTNativeExpressRewardVideoAd *)rewardedVideoAd;
 
 /**
  视频播放页即将展示回调
 
  @param rewardedVideoAd GDTRewardVideoAd 实例
  */
-- (void)gdt_rewardVideoAdWillVisible:(GDTRewardVideoAd *)rewardedVideoAd;
+- (void)gdt_nativeExpressRewardVideoAdWillVisible:(GDTNativeExpressRewardVideoAd *)rewardedVideoAd;
 
 /**
  视频广告曝光回调
 
  @param rewardedVideoAd GDTRewardVideoAd 实例
  */
-- (void)gdt_rewardVideoAdDidExposed:(GDTRewardVideoAd *)rewardedVideoAd;
+- (void)gdt_nativeExpressRewardVideoAdDidExposed:(GDTNativeExpressRewardVideoAd *)rewardedVideoAd;
 
 /**
  视频播放页关闭回调
 
  @param rewardedVideoAd GDTRewardVideoAd 实例
  */
-- (void)gdt_rewardVideoAdDidClose:(GDTRewardVideoAd *)rewardedVideoAd;
+- (void)gdt_nativeExpressRewardVideoAdDidClose:(GDTNativeExpressRewardVideoAd *)rewardedVideoAd;
 
 /**
  视频广告信息点击回调
 
  @param rewardedVideoAd GDTRewardVideoAd 实例
  */
-- (void)gdt_rewardVideoAdDidClicked:(GDTRewardVideoAd *)rewardedVideoAd;
+- (void)gdt_nativeExpressRewardVideoAdDidClicked:(GDTNativeExpressRewardVideoAd *)rewardedVideoAd;
 
 /**
  视频广告各种错误信息回调
@@ -146,30 +129,28 @@ NS_ASSUME_NONNULL_BEGIN
  @param rewardedVideoAd GDTRewardVideoAd 实例
  @param error 具体错误信息
  */
-- (void)gdt_rewardVideoAd:(GDTRewardVideoAd *)rewardedVideoAd didFailWithError:(NSError *)error;
+- (void)gdt_nativeExpressRewardVideoAd:(GDTNativeExpressRewardVideoAd *)rewardedVideoAd didFailWithError:(NSError *)error;
 
 /**
  视频广告播放达到激励条件回调
 
  @param rewardedVideoAd GDTRewardVideoAd 实例
  */
-- (void)gdt_rewardVideoAdDidRewardEffective:(GDTRewardVideoAd *)rewardedVideoAd GDT_DEPRECATED_MSG_ATTRIBUTE("接口即将废弃，请使用 gdt_rewardVideoAdDidRewardEffective:info:");
-
+- (void)gdt_nativeExpressRewardVideoAdDidRewardEffective:(GDTNativeExpressRewardVideoAd *)rewardedVideoAd GDT_DEPRECATED_MSG_ATTRIBUTE("接口即将废弃，请使用 gdt_nativeExpressRewardVideoAdDidRewardEffective:info:");;
 
 /**
  视频广告播放达到激励条件回调
 
  @param rewardedVideoAd GDTRewardVideoAd 实例
- @param info 包含此次广告行为的一些信息，例如 @{@"GDT_TRANS_ID":@"930f1fc8ac59983bbdf4548ee40ac353"}, 通过@“GDT_TRANS_ID”可获取此次广告行为的交易id
  */
-- (void)gdt_rewardVideoAdDidRewardEffective:(GDTRewardVideoAd *)rewardedVideoAd info:(NSDictionary *)info;
+- (void)gdt_nativeExpressRewardVideoAdDidRewardEffective:(GDTNativeExpressRewardVideoAd *)rewardedVideoAd info:(NSDictionary *)info;
 
 /**
  视频广告视频播放完成
 
  @param rewardedVideoAd GDTRewardVideoAd 实例
  */
-- (void)gdt_rewardVideoAdDidPlayFinish:(GDTRewardVideoAd *)rewardedVideoAd;
+- (void)gdt_nativeExpressRewardVideoAdDidPlayFinish:(GDTNativeExpressRewardVideoAd *)rewardedVideoAd;
 
 @end
 

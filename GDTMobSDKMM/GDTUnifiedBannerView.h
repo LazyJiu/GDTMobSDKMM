@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GDTLoadAdParams.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -83,6 +84,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  广告刷新间隔，范围 [30, 120] 秒，默认值 30 秒。设 0 则不刷新。 [可选]
  */
 @property (nonatomic) int autoSwitchInterval;
+
+/**
+ *  QQ小游戏SDK字段透传
+*/
+@property (nonatomic, strong) GDTLoadAdParams *loadAdParams;
+
 /**
  *  构造方法
  *  详解：placementId - 广告位 ID

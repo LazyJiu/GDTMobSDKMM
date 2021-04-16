@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "GDTSDKDefines.h"
+#import "GDTAdTestSetting.h"
 
 @interface GDTSDKConfig : NSObject
 
@@ -67,6 +68,15 @@
  SDK设置的category为AVAudioSessionCategoryAmbient，options为AVAudioSessionCategoryOptionDuckOthers
  */
 + (void)enableDefaultAudioSessionSetting:(BOOL)enabled;
+
++ (GDTAdTestSetting *)debugSetting;
+
+/**
+ 设置开发阶段调试相关的配置
+ */
++ (void)setDebugSetting:(GDTAdTestSetting *)debugSetting;
+
++ (void)forbiddenIDFA:(BOOL)forbiddened;
 
 @end
 

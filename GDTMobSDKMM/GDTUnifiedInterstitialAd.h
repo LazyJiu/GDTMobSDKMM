@@ -182,7 +182,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)eCPMLevel;
 
 /**
- *  非 WiFi 网络，是否自动播放。默认 NO。loadAd 前设置。
+ *  非 WiFi 网络，是否自动播放。默认 YES。loadAd 前设置。
  */
 
 @property (nonatomic, assign) BOOL videoAutoPlayOnWWAN;
@@ -199,13 +199,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL detailPageVideoMuted;
 
 /**
- 请求视频的时长下限，视频时长有效值范围为[5,60]。
- 以下两种情况会使用系统默认的最小值设置，1:不设置  2:minVideoDuration大于maxVideoDuration
+ 请求视频的时长下限。
+ 以下两种情况会使用 0，1:不设置  2:minVideoDuration大于maxVideoDuration
 */
 @property (nonatomic) NSInteger minVideoDuration;
 
 /**
- 请求视频的时长上限，视频时长有效值范围为[5,60]。
+ 请求视频的时长上限，视频时长有效值范围为[5,180]。
  */
 @property (nonatomic) NSInteger maxVideoDuration;
 

@@ -43,12 +43,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)gdt_NativeExpressProAdViewClosed:(GDTNativeExpressProAdView *)nativeExpressProAdView;
 
 /**
- * 点击原生模板2.0广告以后即将弹出全屏广告页
+ * 点击原生模板2.0广告点击以后即将弹出全屏广告页
  */
 - (void)gdt_NativeExpressProAdViewWillPresentScreen:(GDTNativeExpressProAdView *)nativeExpressProAdView;
 
 /**
- * 点击原生模板2.0广告以后弹出全屏广告页
+ * 点击原生模板2.0广告点击以后弹出全屏广告页
  */
 - (void)gdt_NativeExpressProAdViewDidPresentScreen:(GDTNativeExpressProAdView *)nativeExpressProAdView;
 
@@ -71,6 +71,8 @@ NS_ASSUME_NONNULL_BEGIN
  * 原生模板视频广告 player 播放状态更新回调
  */
 - (void)gdt_NativeExpressProAdView:(GDTNativeExpressProAdView *)nativeExpressProAdView playerStatusChanged:(GDTMediaPlayerStatus)status;
+
+- (void)gdt_NativeExpressProAdViewVideoDidFinished:(GDTNativeExpressProAdView *)nativeExpressProAdView;
 
 @end
 

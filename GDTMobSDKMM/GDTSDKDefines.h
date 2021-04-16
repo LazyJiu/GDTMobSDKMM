@@ -23,7 +23,6 @@
 
 #define GDTScreenHeight ([UIScreen mainScreen].bounds.size.height)
 #define GDTScreenWidth  ([UIScreen mainScreen].bounds.size.width)
-#define GDTTangramSchemePrefix  @"gdtmsg://e.qq.com/"
 /**
  *  视频播放器状态
  *
@@ -35,8 +34,8 @@ typedef NS_ENUM(NSUInteger, GDTMediaPlayerStatus) {
     GDTMediaPlayerStatusLoading = 1,         // 加载中
     GDTMediaPlayerStatusStarted = 2,         // 开始播放
     GDTMediaPlayerStatusPaused = 3,          // 用户行为导致暂停
-    GDTMediaPlayerStatusStoped = 4,          // 播放停止
-    GDTMediaPlayerStatusError = 5,           // 播放出错
+    GDTMediaPlayerStatusError = 4,           // 播放出错
+    GDTMediaPlayerStatusStoped = 5,          // 播放停止
 };
 
 typedef enum GDTSDKLoginType {
@@ -55,6 +54,11 @@ typedef NS_ENUM(NSUInteger, GDTVideoRenderType) {
     GDTVideoRenderTypeUnknow = 0,
     GDTVideoRenderTypeSDK = 1,
     GDTVideoRenderTypeDeveloper = 2
+};
+
+typedef NS_ENUM (NSUInteger, GDTRewardAdType) {
+    GDTRewardAdTypeVideo = 0,//激励视频
+    GDTRewardAdTypePage = 1 //激励浏览
 };
 
 static inline BOOL isIPhoneXSeries() {

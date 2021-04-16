@@ -10,6 +10,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "GDTSDKDefines.h"
+#import "GDTSplashZoomOutView.h"
 
 @class GDTSplashAd;
 
@@ -116,6 +117,17 @@
 @property (nonatomic, assign) CGPoint skipButtonCenter;
 
 /**
+ * 是否需要开屏视频V+功能
+ */
+@property (nonatomic, assign) BOOL needZoomOut;
+
+/**
+ * 当广告命中开屏视频V+时，splshZoomOutView有值
+ * splashZoomOutView推荐尺寸为9:16，最小尺寸推荐为126*224
+ */
+@property (nonatomic, strong, readonly) GDTSplashZoomOutView *splashZoomOutView;
+
+/**
  返回广告平台名称
  
  @return 当使用流量分配功能时，用于区分广告平台；未使用时为空字符串
@@ -140,7 +152,7 @@
  
  @param placementId 广告位ID
  */
-+ (void)preloadSplashOrderWithPlacementId:(NSString *)placementId;
+- (void)preloadSplashOrderWithPlacementId:(NSString *)placementId;
 
 #pragma mark - Parallel method
 
@@ -162,6 +174,18 @@
  *  详解：广告展示成功时会回调splashAdSuccessPresentScreen方法，展示失败时会回调splashAdFailToPresent方法
  */
 - (void)showAdInWindow:(UIWindow *)window withBottomView:(UIView *)bottomView skipView:(UIView *)skipView;
+
+/**
+ *  发起拉取全屏广告请求，只拉取不展示
+ *  详解：广告素材及广告图片拉取成功后会回调splashAdDidLoad方法，当拉取失败时会回调splashAdFailToPresent方法
+ */
+- (void)loadFullScreenAd;
+
+/**
+ *  展示全屏广告，调用此方法前需调用isAdValid方法判断广告素材是否有效
+ *  详解：广告展示成功时会回调splashAdSuccessPresentScreen方法，展示失败时会回调splashAdFailToPresent方法
+ */
+- (void)showFullScreenAdInWindow:(UIWindow *)window withLogoImage:(UIImage *)logoImage skipView:(UIView *)skipView;
 
 /**
  *  构造方法
@@ -197,5 +221,15 @@
            skipView 自定义”跳过“View.
  */
 - (void)loadAdAndShowInWindow:(UIWindow *)window withBottomView:(UIView *)bottomView skipView:(UIView *)skipView GDT_DEPRECATED_MSG_ATTRIBUTE("接口即将废弃，请分别使用loadAd 和 showAdInWindow:接口");
+
+/**
+ *  广告发起请求并展示在Window中, 同时在屏幕底部设置应用自身的Logo页面或是自定义View,skipView是自定义的“跳过”样式
+ *  详解：[可选]发起拉取广告请求,并将获取的广告全屏展示, 可自定义 logo
+ *  skipView
+ *  @param window 展示开屏的容器
+ *         logoImage 自定义logo 展示在屏幕左下角
+           skipView 自定义”跳过“View.
+ */
+- (void)loadAdAndShowFullScreenInWindow:(UIWindow *)window withLogoImage:(UIImage *)logoImage skipView:(UIView *)skipView GDT_DEPRECATED_MSG_ATTRIBUTE("接口即将废弃，请分别使用loadFullScreenAd 和 showFullScreenAdInWindow:接口");
 
 @end
