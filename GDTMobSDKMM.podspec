@@ -25,7 +25,7 @@ TODO: Add long description of the pod here.
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'LazyJiu' => '0x170818@gmail.com' }
-  s.source           = { :git => 'https://github.com/LazyJiu/GDTMobSDKMM.git', :tag => s.version.to_s }
+  s.source           = { :http => 'https://yiwanpic.oss-cn-shenzhen.aliyuncs.com/gdt/4.12.6/GDTMobSDKMM.zip' }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
