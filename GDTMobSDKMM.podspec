@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'GDTMobSDKMM'
-  s.version          = '4.12.6'
-  s.summary          = '4.12.6'
+  s.version          = '4.13.26'
+  s.summary          = '4.13.26'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -25,7 +25,7 @@ TODO: Add long description of the pod here.
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'LazyJiu' => '0x170818@gmail.com' }
-  s.source           = { :http => 'https://yiwanpic.oss-cn-shenzhen.aliyuncs.com/gdt/4.12.6_1/GDTMobSDKMM.zip' }
+  s.source           = { :http => 'https://yiwanpic.oss-cn-shenzhen.aliyuncs.com/gdt/4.13.26/GDTMobSDKMM.zip' }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
